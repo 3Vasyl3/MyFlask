@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<!--Content-->
+<nav class="navbar navbar-expand-md navbar-dark bg-secondary fixed-top py-2">
+  <div class="container container-fluid">
+    <a class="navbar-brand" href="#">Rhino</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse text-light">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Head</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Audio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-info" type="submit">Пошук</button>
+      </form>
+    </div>
+  </div>
+</nav>
+<div class="container d-flex flex-column content">
+  <div>
+    <br/>
+    <br/>
+    <br/>
+  </div>
+ <div>
+    <div class="d-flex justify-content-around m-2 flex-wrap h-100">
+{% for audi in aud %}
+      <div class="card border-info m-2">
+          <div class="bg-info card-header">
+            Audio
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">{{ audi.mp3 }}</h5>
+            <hr/>
+            <p class="card-text">{{ audi.text }}
+            </p>
+            </div>
+            <div class="bg-secondary card-footer">
+              <audio id="sound{{audi.count}}" src="static/audio/{{ audi.mp3 }}.mp3" preload="auto"> </audio>
+            <button type="button" class="p{{audi.count}} btn btn-outline-info" onClick="togglePlay(audio{{audi.count}}, '.p{{audi.count}}')"><svg width="32" height="32" fill="currentColor" class="bi" viewBox="0 0 16 16"><use xlink:href="#svgplay"/></svg></button>  
+            </div>
+          </div>
+{% endfor %}
+      </div>
+    </div>
+  </div>
+<div class="container d-flex justify-content-center">
+<nav>
+  <br>
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link border-info text-light bg-dark fs-5" href="#" aria-label="Previous"><span aria-hidden="true"> &laquo; </span></a></li>
+    <li class="page-item"><a class="page-link border-info text-light bg-dark fs-5" href="#"> 1 </a></li>
+    <li class="page-item"><a class="page-link border-info text-light bg-dark fs-5" href="#"> 2 </a></li>
+    <li class="page-item"><a class="page-link border-info text-light bg-dark fs-5" href="#"> 3 </a></li>
+    <li class="page-item"><a class="page-link border-info text-light bg-dark fs-5" href="#" aria-label="Next"><span aria-hidden="true"> &raquo; </span></a></li>
+  </ul>
+</nav>
+</div>
+</div>
+
+<!---->
+{% endblock %}

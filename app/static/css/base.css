@@ -1,0 +1,89 @@
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: var(--bs-dark);
+        color: var(--bs-light);
+    }
+    img {
+        filter: brightness(70%);
+    }
+}
+@media (prefers-color-scheme: light) {
+    body {
+        background-color: var(--bs-light);
+        color: var(--bs-dark);
+    }
+    .kroha{
+      color:var(--bs-dark);
+    }
+}
+
+@media (min-width: 768px) {
+    .card-text{
+      color: var(--primary);
+    }
+}
+
+@media (min-width: 1008px) {
+    .card-text{
+      color: var(--blue);
+    }
+}
+
+ul.kroha {
+  padding: 10px 16px;
+  list-style: none;
+}
+
+/* Display list items side by side */
+ul.kroha li {
+  display: inline;
+  font-size: 18px;
+}
+
+/* Add a slash symbol (/) before/behind each list item */
+ul.kroha li+li:before {
+  padding: 8px;
+  color: darkblue;
+  content: "/\00a0";
+}
+
+/* Add a color to all links inside the list */
+
+
+/* Add a color on mouse-over */
+ul.kroha li a:hover {
+  text-decoration: underline;
+}
+.p1,.p2,.p3{
+    width: 100%;
+}
+
+.card-header{
+    text-align: center;
+    color:rgb(24, 78, 133);
+}
+
+.card-text{
+    color:darkred;
+  }
+
+.card{
+    width: 25rem;
+}
+
+
+html, body {
+    height: 100%;
+  }
+body {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .content {
+    flex: 1 0 auto;
+  }
+  
+  .footer {
+    flex-shrink: 0;
+  }
